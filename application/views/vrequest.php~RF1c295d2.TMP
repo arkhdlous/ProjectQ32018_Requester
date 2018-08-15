@@ -1,0 +1,236 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+
+	<style type="text/css">
+
+	::selection { background-color: #E13300; color: white; }
+	::-moz-selection { background-color: #E13300; color: white; }
+
+	body {
+		background-color: #fff;
+		margin: 40px;
+		font: 13px/20px normal Helvetica, Arial, sans-serif;
+		color: #4F5155;
+	}
+
+	a {
+		color: #003399;
+		background-color: transparent;
+		font-weight: normal;
+	}
+
+	h1 {
+		color: #444;
+		background-color: transparent;
+		border-bottom: 1px solid #D0D0D0;
+		font-size: 19px;
+		font-weight: normal;
+		margin: 0 0 14px 0;
+		padding: 14px 15px 10px 15px;
+	}
+
+	code {
+		font-family: Consolas, Monaco, Courier New, Courier, monospace;
+		font-size: 12px;
+		background-color: #f9f9f9;
+		border: 1px solid #D0D0D0;
+		color: #002166;
+		display: block;
+		margin: 14px 0 14px 0;
+		padding: 12px 10px 12px 10px;
+	}
+
+	#body {
+		margin: 0 15px 0 15px;
+	}
+
+	p.footer {
+		text-align: right;
+		font-size: 11px;
+		border-top: 1px solid #D0D0D0;
+		line-height: 32px;
+		padding: 0 10px 0 10px;
+		margin: 20px 0 0 0;
+	}
+
+	#container {
+		margin: 10px;
+		border: 1px solid #D0D0D0;
+		box-shadow: 0 0 8px #D0D0D0;
+	}
+
+	.tombol-simpan{
+		background: #232323;
+		padding: 5px 10px;
+		color: #fff;	
+	}
+ 
+	</style>
+</head>
+<body>
+
+<div id="container">
+	<h1>Form Request!</h1>
+
+	<div id="body">
+	<h1 align="center"> P/C 응용 S/W 개발 계획서(Applicstion S/W Development Plan ) </h1>
+	<form method="post" class="form-input" action="<?php echo base_url();?>CRequest/insert_data">
+		<table>
+			<tr>
+				<td> 공정 명 (PLANT NAME) </td>
+				<td><input type="text" name="plant_name" > </td>
+
+				<td> 테스트 일자 (DATE OF TEST) </td>
+				<td><input type="text" name="date_test"/> </td>
+			</tr>
+			<tr>
+				<td> 요청일자 (DATE OF REQUEST)</td>
+				<td><input type="text" name="date_request"></td>
+				
+				<td> 설치 일자 (DATE OF INSTALL) </td>
+				<td><input type="text" name="date_install" /></td>
+			</tr>
+			<tr>
+				<td> 개발 내용 (DEVELOPMENT CONTENT) </td>
+				<td><select name="content">
+					<option value="insert"> 추가 (Insert) </option>
+					<option value="update"> 변경 (Update) </option>
+					<option value="delete"> 삭제 (Delete) </option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td> 내용 (SUMARRY) </td>
+				<td><textarea name="summary"></textarea></td>
+			</tr>
+			<tr>
+				<td> 테스트 방법 (TEST METHOD) </td>
+				<td><textarea name="test_method"></textarea></td>
+			</tr>
+			<tr>
+				<td> 결과 확인 방법 (MONITORING METHOD) </td>
+				<td><textarea name="monitoring_method"></textarea></td>
+			</tr>
+			<tr>
+				<td><button type="submit" class="tombol-simpan"> SIMPAN </button></td>
+			</tr>
+		</table>
+
+	</form>
+
+<form>
+  <div class="form-row align-items-center">
+    <div class="col-sm-6 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">공정 명 (PLANT NAME) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="PLANT NAME">
+      </div>
+    </div>
+    <div class="col-sm-6 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"> 테스트 일자 (DATE OF TEST) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="DATE OF TEST">
+      </div>
+    </div>
+  </div>
+  <div class="form-row align-items-center">
+    <div class="col-sm-6 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"> 요청일자 (DATE OF REQUEST) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="DATE OF REQUEST">
+      </div>
+    </div>
+    <div class="col-sm-6 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text"> 설치 일자 (DATE OF INSTALL) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="DATE OF INSTALL">
+      </div>
+    </div>
+  </div>
+  <div class="form-row align-items-center">
+    <div class="col-sm-6 my-1">
+      <div class="input-group">
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="개발 내용 (DEVELOPMENT CONTENT)" readonly disabled>
+      </div>
+    </div>
+    <div class="col-md-2 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">  추가 (Insert) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="추가 (Insert)">
+      </div>
+    </div>
+    <div class="col-sm-2 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">  변경 (Update) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="변경 (Update)">
+      </div>
+    </div>
+    <div class="col-sm-2 my-1">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">  삭제 (Delete) </div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="삭제 (Delete)">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-12 mb-3">
+      <label for="validationCustom01">First name</label>
+      <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
+    </div>
+   </div>
+
+  <div class="form-row align-items-center">
+    <div class="col-auto my-1">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+        <label class="form-check-label" for="autoSizingCheck2">
+          Remember me
+        </label>
+      </div>
+    </div>
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+</div>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".tombol-simpan").click(function(){
+			var data = $('.form-input').serialize();
+			$.ajax({
+				type: 'POST',
+				url: "<?php echo base_url();?> CRequest/insert_data",
+				data: data,
+				success: function() {
+					$('.showdata').load("<?php echo base_url();?>request/vrequest_data.php");
+				}
+			});
+		});
+	});
+	</script>
+
+</body>
+</html>
